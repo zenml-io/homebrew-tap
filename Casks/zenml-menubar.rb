@@ -1,6 +1,6 @@
 cask "zenml-menubar" do
-  version "0.1.0"
-  sha256 :no_check # TODO: replace with actual sha256 once first release is published
+  version "0.2.0"
+  sha256 "1b90afde5f76c6b07b8a2b218dd3183e4f735db5460763cee8607ac6b228cb20"
 
   url "https://github.com/zenml-io/menubar-zenml/releases/download/v#{version}/ZenMLMenuBar-v#{version}.zip"
   name "ZenML Menu Bar"
@@ -11,7 +11,12 @@ cask "zenml-menubar" do
 
   app "ZenML Menu Bar.app"
 
+  caveats <<~EOS
+    This release may require right-click → Open on first launch
+    until full notarization is in place.
+  EOS
+
   zap trash: [
-    "~/Library/Preferences/io.zenml.ZenMLMenuBar.plist",
+    "~/Library/Preferences/io.zenml.menubar.plist",
   ]
 end
